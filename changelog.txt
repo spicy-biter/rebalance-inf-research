@@ -1,0 +1,11 @@
+---------------------------------------------------------------------------------------------------
+Version: 0.0.1
+Date: 2025-01-06
+  Changes:
+    - Create mod
+    - Make Utility and Space science required for most infinite productivity research
+    - Make Utility science a prerequisite for infinite mining productivity
+    - Make infinite mining productivity research require utility science
+    - Modify the cost scaling of infinite mining productivity
+    - Make Production science required for infinite bullet damage research
+

@@ -1,0 +1,13 @@
+{
+    "name": "rebalance-inf-research",
+    "version": "0.0.1",
+    "title": "Rebalance Infinite Research",
+    "author": "Praemineo",
+    "factorio_version": "2.0",
+    "dependencies": [
+        "base >= 2.0",
+        "space-age >= 2.0.28"
+    ],
+    "description": "Make infinite research require more types of science"
+}
+
