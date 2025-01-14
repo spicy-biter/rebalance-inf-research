@@ -1,5 +1,23 @@
+function add_ingredient(tech_name, science_pack)
+    local technology = data.raw["technology"][tech_name]
+    for _, ingredient in pairs(technology.unit.ingredients) do
+        if ingredient[1] == science_pack then
+            return
+        end
+    end
+    table.insert(
+        technology.unit.ingredients,
+        {
+            science_pack,
+            1
+        }
+    )
+end
+
+
 local inf_mining_prod = "mining-productivity-3"
 local inf_bullet_dmg = "physical-projectile-damage-7"
+
 
 -- Add util and space science to recipe
 local prod_techs = {
@@ -27,23 +45,12 @@ table.insert(
     data.raw["technology"][inf_mining_prod].prerequisites,
     util_sci
 )
-
-table.insert(
-    data.raw["technology"][inf_mining_prod].unit.ingredients,
-    {
-        util_sci,
-        1
-    }
-)
+add_ingredient(inf_mining_prod, util_sci)
 
 -- Make infinite bullet damage require production science
-table.insert(
-    data.raw["technology"][inf_bullet_dmg].unit.ingredients,
-    {
-        prod_sci,
-        1
-    }
-)
+
+add_ingredient(inf_bullet_dmg, prod_sci)
+
 
 for idx, tech_name in pairs(prod_techs) do
 
@@ -52,21 +59,8 @@ for idx, tech_name in pairs(prod_techs) do
         util_sci
     )
 
-    table.insert(
-        data.raw["technology"][tech_name].unit.ingredients,
-        {
-            util_sci,
-            1
-        }
-    )
-
-    table.insert(
-        data.raw["technology"][tech_name].unit.ingredients,
-        {
-            space_sci,
-            1
-        }
-    )
+    add_ingredient(tech_name, util_sci)
+    add_ingredient(tech_name, space_sci)
 
 end
 
